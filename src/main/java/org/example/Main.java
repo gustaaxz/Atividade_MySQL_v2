@@ -1,6 +1,8 @@
 package org.example;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -47,7 +49,7 @@ public class Main {
             }
 
             case 5 : {
-
+                listarTodosFornecedores();
                 break;
             }
 
@@ -57,7 +59,7 @@ public class Main {
             }
 
             case 7 : {
-
+                atualizarFornecedor();
                 break;
             }
 
@@ -118,7 +120,41 @@ public class Main {
     }
 
     public static void listarTodosFornecedores(){
+        List<Fornecedor> listarTodosFornecedores = new ArrayList<>();
+        var dao = new SistemaDAO();
 
+        try {
+            listarTodosFornecedores = dao.listarFornecedores();
+        } catch (SQLException e) {
+            System.out.println("Erro ao listar todos os fornecedores!");
+        }
+
+        System.out.println("id | nome | cnpj");
+        for (Fornecedor f : listarTodosFornecedores) {
+            System.out.println(f.getId() + " | " + f.getNome() + " | " + f.getCnpj());
+        }
     }
 
+    public static void atualizarFornecedor() {
+        var dao = new SistemaDAO();
+
+        System.out.println("Qual o ID do Fornecedor que deseja atualizar?");
+        int id = sc.nextInt();
+        sc.nextLine();
+
+        System.out.println("Qual o novo nome?");
+        String nome = sc.nextLine();
+
+        System.out.println("Qual o novo CNPJ?");
+        String cnpj = sc.nextLine();
+
+        Fornecedor fornecedorAtualizado = new Fornecedor(id, nome, cnpj);
+
+        try {
+            dao.atualizarFornecedor(fornecedorAtualizado);
+            System.out.println("Fornecedor atualizado com sucesso!");
+        } catch (SQLException e) {
+            System.out.println("Erro ao atualizar o Fornecedor.");
+        }
+    }
 }
