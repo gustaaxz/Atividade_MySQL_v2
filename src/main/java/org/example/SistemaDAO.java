@@ -122,5 +122,25 @@ public class SistemaDAO {
             System.out.println("Erro ao deletar o Fornecedor!");
         }
     }
+
+    public void cadastrarEquipamento() throws SQLException {
+        /* Pendente a fazer. */
+    }
+
+    public void buscarEquipamentoPorId() throws SQLException {
+        /* Pendente a fazer. */
+    }
+
+    public void listarTodosEquipamentos() throws SQLException {
+        /* Pendente a fazer. */
+    }
+
+    public void atualizarEquipamento() throws SQLException {
+        /* Pendente a fazer. */
+    }
+
+    public void deletarEquipamento() throws SQLException {
+        /* Pendente a fazer. */
+    }
 }
 

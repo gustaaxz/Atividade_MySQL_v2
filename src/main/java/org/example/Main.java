@@ -171,4 +171,24 @@ public class Main {
             System.out.println("Erro ao deletar o Fornecedor!");;
         }
     }
+
+    public static void cadastrarEquipamento(){
+        /* Pendente a fazer. */
+    }
+
+    public static void buscarEquipamentoPorId(){
+        /* Pendente a fazer. */
+    }
+
+    public static void listarEquipamentosPeloIdFornecedor(){
+        /* Pendente a fazer. */
+    }
+
+    public static void atualizarEquipamento(){
+        /* Pendente a fazer. */
+    }
+
+    public static void deletarEquipamento(){
+        /* Pendente a fazer. */
+    }
 }
