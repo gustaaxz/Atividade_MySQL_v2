@@ -102,5 +102,25 @@ public class SistemaDAO {
 
         return fornecedor;
     }
+
+    public void deletarFornecedor(int id) throws SQLException {
+        String command = """
+            DELETE FROM Fornecedor
+            WHERE id = ?
+            """;
+
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement stmt = conn.prepareStatement(command)) {
+
+            stmt.setInt(1, id);
+            int linhasAfetadas = stmt.executeUpdate();
+
+            if (linhasAfetadas == 0) {
+                throw new RuntimeException("ID do Fornecedor não encontrado!");
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao deletar o Fornecedor!");
+        }
+    }
 }
 

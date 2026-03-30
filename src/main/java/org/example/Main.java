@@ -69,7 +69,7 @@ public class Main {
             }
 
             case 9 : {
-
+                deletarFornecedor();
                 break;
             }
 
@@ -155,6 +155,20 @@ public class Main {
             System.out.println("Fornecedor atualizado com sucesso!");
         } catch (SQLException e) {
             System.out.println("Erro ao atualizar o Fornecedor.");
+        }
+    }
+
+    public static void deletarFornecedor(){
+        System.out.println("Qual o ID do Fornecedor que deseja deletar?: ");
+        sc.nextLine();
+        int idFornecedorDeletar = sc.nextInt();
+
+        var dao = new SistemaDAO();
+
+        try {
+            dao.deletarFornecedor(idFornecedorDeletar);
+        } catch (SQLException e) {
+            System.out.println("Erro ao deletar o Fornecedor!");;
         }
     }
 }
